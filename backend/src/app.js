@@ -25,3 +25,10 @@ export function createApp() {
 
   return app;
 }
+
+// Default export berupa instance Express app agar kompatibel dengan deteksi
+// entry point Vercel (yang memindai src/app.js dan mengharuskan default export
+// berupa app/handler, bukan fungsi factory). Routing, auth, DB, dan fitur AI
+// tidak berubah — ini hanya instance dari createApp().
+const app = createApp();
+export default app;
